@@ -52,13 +52,19 @@
         <nav class="container mx-auto px-6 py-3">
             <div class="flex justify-between items-center">
                 <div class="text-xl font-bold">Filipe Quintino</div>
-                <div class="hidden md:flex space-x-6">
-                    <a href="#profile" class="hover:text-sky-400 transition">Perfil</a>
-                    <a href="#experience" class="hover:text-sky-400 transition">Experiência</a>
-                    <a href="#skills" class="hover:text-sky-400 transition">Competências</a>
-                    <a href="#education" class="hover:text-sky-400 transition">Educação</a>
-                    <a href="#languages" class="hover:text-sky-400 transition">Idiomas</a>
-                    <a href="#contact" class="hover:text-sky-400 transition">Contacto</a>
+                <div class="flex space-x-6">
+                    <div class="hidden md:flex space-x-6">
+                        <a href="#profile" class="nav-link hover:text-sky-400 transition" data-lang-key="nav.profile">Perfil</a>
+                        <a href="#experience" class="nav-link hover:text-sky-400 transition" data-lang-key="nav.experience">Experiência</a>
+                        <a href="#skills" class="nav-link hover:text-sky-400 transition" data-lang-key="nav.skills">Competências</a>
+                        <a href="#education" class="nav-link hover:text-sky-400 transition" data-lang-key="nav.education">Educação</a>
+                        <a href="#languages" class="nav-link hover:text-sky-400 transition" data-lang-key="nav.languages">Idiomas</a>
+                        <a href="#contact" class="nav-link hover:text-sky-400 transition" data-lang-key="nav.contact">Contacto</a>
+                    </div>
+                    <div class="ml-4 flex items-center space-x-2">
+                        <button id="lang-pt" class="lang-btn text-sm font-semibold p-1 rounded-md bg-sky-600">PT</button>
+                        <button id="lang-en" class="lang-btn text-sm font-semibold p-1 rounded-md bg-slate-700 hover:bg-sky-600 transition">EN</button>
+                    </div>
                 </div>
                 <div class="md:hidden">
                     <button id="menu-btn" class="text-white focus:outline-none">
@@ -67,12 +73,12 @@
                 </div>
             </div>
             <div id="mobile-menu" class="hidden md:hidden mt-4">
-                <a href="#profile" class="block py-2 px-4 text-sm hover:bg-slate-700 rounded">Perfil</a>
-                <a href="#experience" class="block py-2 px-4 text-sm hover:bg-slate-700 rounded">Experiência</a>
-                <a href="#skills" class="block py-2 px-4 text-sm hover:bg-slate-700 rounded">Competências</a>
-                <a href="#education" class="block py-2 px-4 text-sm hover:bg-slate-700 rounded">Educação</a>
-                <a href="#languages" class="block py-2 px-4 text-sm hover:bg-slate-700 rounded">Idiomas</a>
-                <a href="#contact" class="block py-2 px-4 text-sm hover:bg-slate-700 rounded">Contacto</a>
+                <a href="#profile" class="nav-link block py-2 px-4 text-sm hover:bg-slate-700 rounded" data-lang-key="nav.profile">Perfil</a>
+                <a href="#experience" class="nav-link block py-2 px-4 text-sm hover:bg-slate-700 rounded" data-lang-key="nav.experience">Experiência</a>
+                <a href="#skills" class="nav-link block py-2 px-4 text-sm hover:bg-slate-700 rounded" data-lang-key="nav.skills">Competências</a>
+                <a href="#education" class="nav-link block py-2 px-4 text-sm hover:bg-slate-700 rounded" data-lang-key="nav.education">Educação</a>
+                <a href="#languages" class="nav-link block py-2 px-4 text-sm hover:bg-slate-700 rounded" data-lang-key="nav.languages">Idiomas</a>
+                <a href="#contact" class="nav-link block py-2 px-4 text-sm hover:bg-slate-700 rounded" data-lang-key="nav.contact">Contacto</a>
             </div>
         </nav>
     </header>
@@ -80,9 +86,9 @@
     <main>
         <section id="profile" class="py-20 bg-white">
             <div class="container mx-auto px-6 text-center">
-                <h1 class="text-4xl md:text-5xl font-bold text-slate-800">Filipe Miguel Salema Banazol Quintino</h1>
-                <p class="mt-4 text-xl text-sky-600 font-medium">Cloud and Systems Architect</p>
-                <p class="mt-6 max-w-3xl mx-auto text-lg text-slate-600">
+                <h1 id="profile-name" class="text-4xl md:text-5xl font-bold text-slate-800">Filipe Miguel Salema Banazol Quintino</h1>
+                <p id="profile-title" class="mt-4 text-xl text-sky-600 font-medium" data-lang-key="profile.title">Cloud and Systems Architect</p>
+                <p id="profile-summary" class="mt-6 max-w-3xl mx-auto text-lg text-slate-600" data-lang-key="profile.summary">
                     Arquiteto de Cloud e Sistemas, dedicado e orientado a resultados, com mais de 15 anos de experiência na gestão de infraestruturas de TI complexas para empresas de telecomunicações e de alojamento na nuvem. A minha especialidade é projetar, implementar e otimizar plataformas de nuvem, soluções de armazenamento e arquiteturas de rede.
                 </p>
             </div>
@@ -90,7 +96,7 @@
 
         <section id="experience" class="py-20">
             <div class="container mx-auto px-6">
-                <h2 class="text-3xl font-bold text-center text-slate-800 mb-12">Experiência Profissional</h2>
+                <h2 id="experience-title" class="text-3xl font-bold text-center text-slate-800 mb-12" data-lang-key="experience.title">Experiência Profissional</h2>
                 <div id="timeline-container" class="relative max-w-3xl mx-auto">
                     <div class="absolute left-1/2 h-full w-0.5 bg-slate-300 transform -translate-x-1/2"></div>
                 </div>
@@ -99,7 +105,7 @@
 
         <section id="skills" class="py-20 bg-white">
             <div class="container mx-auto px-6">
-                <h2 class="text-3xl font-bold text-center text-slate-800 mb-12">Principais Competências</h2>
+                <h2 id="skills-title" class="text-3xl font-bold text-center text-slate-800 mb-12" data-lang-key="skills.title">Principais Competências</h2>
                 <div class="grid md:grid-cols-2 gap-12 items-center">
                     <div class="chart-container">
                         <canvas id="skillsChart"></canvas>
@@ -112,20 +118,16 @@
 
         <section id="education" class="py-20">
             <div class="container mx-auto px-6">
-                <h2 class="text-3xl font-bold text-center text-slate-800 mb-12">Educação & Certificações</h2>
-                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8" id="education-container">
+                <h2 id="education-title" class="text-3xl font-bold text-center text-slate-800 mb-12" data-lang-key="education.title">Educação & Certificações</h2>
+                <div id="education-container" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                 </div>
             </div>
         </section>
 
         <section id="languages" class="py-20 bg-white">
             <div class="container mx-auto px-6 text-center">
-                <h2 class="text-3xl font-bold text-slate-800 mb-8">Idiomas</h2>
-                <ul class="mt-4 space-y-2 text-sm max-w-xl mx-auto">
-                    <li><span class="font-semibold">Português:</span> Proficiência nativa ou bilingue</li>
-                    <li><span class="font-semibold">Inglês:</span> Proficiência profissional completa</li>
-                    <li><span class="font-semibold">Espanhol:</span> Proficiência profissional de trabalho</li>
-                    <li><span class="font-semibold">Francês:</span> Proficiência profissional de trabalho</li>
+                <h2 id="languages-title" class="text-3xl font-bold text-slate-800 mb-8" data-lang-key="languages.title">Idiomas</h2>
+                <ul id="languages-list" class="mt-4 space-y-2 text-sm max-w-xl mx-auto">
                 </ul>
             </div>
         </section>
@@ -133,8 +135,8 @@
 
     <footer id="contact" class="bg-slate-800 text-white py-12">
         <div class="container mx-auto px-6 text-center">
-            <h2 class="text-2xl font-bold">Contacto</h2>
-            <p class="mt-4">Sinta-se à vontade para entrar em contacto.</p>
+            <h2 id="contact-title" class="text-2xl font-bold" data-lang-key="contact.title">Contacto</h2>
+            <p id="contact-text" class="mt-4" data-lang-key="contact.text">Sinta-se à vontade para entrar em contacto.</p>
             <div class="mt-6 flex justify-center items-center space-x-6 text-sm">
                 <a href="mailto:fmq9999@hotmail.com" class="hover:text-sky-400 transition">fmq9999@hotmail.com</a>
                 <span>|</span>
@@ -146,138 +148,248 @@
     </footer>
 
 <script>
-    const experienceData = [
-        {
-            company: "Oni, S.A. - a Gigas Hosting Company Group",
-            roles: [
-                {
-                    title: "Cloud Platform Infrastructure Portugal Team Leader",
-                    period: "Fev 2024 – Presente",
-                    details: [
-                        "Liderar uma equipa de engenheiros responsáveis pela gestão da infraestrutura da plataforma de nuvem, incluindo VMware, Hyper-V e soluções IaaS.",
-                        "Garantir alta disponibilidade e desempenho dos serviços na nuvem para uma vasta base de clientes, incluindo bases de dados e serviços web críticos.",
-                        "Liderar iniciativas estratégicas para melhorar a segurança da nuvem e otimizar a alocação de recursos."
-                    ]
-                },
-                {
-                    title: "IT Architecture Manager",
-                    period: "Abr 2022 – Fev 2024",
-                    details: [
-                        "Gerir o design arquitetónico e a implementação de soluções de TI, com foco em tecnologias de nuvem e virtualização.",
-                        "Liderar uma equipa de arquitetos de sistemas, promovendo um ambiente colaborativo e orientando a equipa para melhorar as capacidades técnicas.",
-                        "Supervisionar a integração do Veeam para backup e recuperação, melhorando a fiabilidade e eficiência da proteção de dados."
-                    ]
-                },
-                {
-                    title: "Systems Architect",
-                    period: "Set 2020 – Abr 2022",
-                    details: [
-                        "Projetar e implementar arquiteturas de sistemas escaláveis e robustas para as plataformas de alojamento na nuvem da empresa.",
-                        "Colaborar com equipas multifuncionais para definir os requisitos do projeto e entregar soluções que cumprissem os objetivos de negócio.",
-                        "Fornecer conhecimentos técnicos em soluções de armazenamento, virtualização e arquitetura de rede."
-                    ]
-                },
-                {
-                    title: "Systems Administrator",
-                    period: "Nov 2019 – Set 2020",
-                    details: [
-                        "Administrar e manter sistemas centrais, incluindo SAN, armazenamento e infraestrutura de backup.",
-                        "Desempenhar um papel fundamental num projeto de recuperação de desastres, garantindo a continuidade do negócio num ambiente dinâmico.",
-                        "Gerir tarefas de projeto relacionadas com a consolidação de armazenamento e atualizações de sistema."
-                    ]
-                }
-            ]
-        },
-        {
-            company: "NOWO Portugal",
-            roles: [
-                {
-                    title: "Systems Administrator",
-                    period: "Dez 2000 – Abr 2022",
-                    details: [
-                        "Dirigir e gerir um programa abrangente de recuperação de desastres, utilizando EMC RecoverPoint.",
-                        "Liderar projetos de consolidação de armazenamento e implementar novas arquiteturas de backup com appliances Avamar e Data Domain.",
-                        "Gerir todos os aspetos de SAN e backups, incluindo administração, otimização e documentação."
-                    ]
-                }
-            ]
-        }
-    ];
-
-    const skillsData = {
-        chartData: {
-            labels: ['Cloud & Virtualization', 'Storage & Data', 'Systems & Architecture', 'Leadership', 'Networking'],
-            data: [90, 95, 85, 90, 80]
-        },
-        listData: [
-            {
-                title: "Cloud & Virtualization",
-                skills: "Google Associate Cloud Engineer (ACE), IaaS, PaaS, VMware ESX, Hyper-V, Cloud Security."
+    const content = {
+        pt: {
+            nav: {
+                profile: "Perfil",
+                experience: "Experiência",
+                skills: "Competências",
+                education: "Educação",
+                languages: "Idiomas",
+                contact: "Contacto"
             },
-            {
-                title: "Storage & Data Management",
-                skills: "HPE 3PAR StoreServ, EMC2 (CX4-480, VNX), BRS, Disaster Recovery, SAN Management, Veeam."
+            profile: {
+                title: "Cloud and Systems Architect",
+                summary: "Arquiteto de Cloud e Sistemas, dedicado e orientado a resultados, com mais de 15 anos de experiência na gestão de infraestruturas de TI complexas para empresas de telecomunicações e de alojamento na nuvem. A minha especialidade é projetar, implementar e otimizar plataformas de nuvem, soluções de armazenamento e arquiteturas de rede."
             },
-            {
-                title: "Systems & Architecture",
-                skills: "Solution Architecture, IT Infrastructure Management, Windows & Linux Administration, Active Directory, SCCM, SCOM."
+            experience: {
+                title: "Experiência Profissional",
+                companies: [
+                    {
+                        company: "Oni, S.A. - a Gigas Hosting Company Group",
+                        roles: [
+                            {
+                                title: "Cloud Platform Infrastructure Portugal Team Leader",
+                                period: "Fev 2024 – Presente",
+                                details: [
+                                    "Liderar uma equipa de engenheiros responsáveis pela gestão da infraestrutura da plataforma de nuvem, incluindo VMware, Hyper-V e soluções IaaS.",
+                                    "Garantir alta disponibilidade e desempenho dos serviços na nuvem para uma vasta base de clientes, incluindo bases de dados e serviços web críticos.",
+                                    "Liderar iniciativas estratégicas para melhorar a segurança da nuvem e otimizar a alocação de recursos."
+                                ]
+                            },
+                            {
+                                title: "IT Architecture Manager",
+                                period: "Abr 2022 – Fev 2024",
+                                details: [
+                                    "Gerir o design arquitetónico e a implementação de soluções de TI, com foco em tecnologias de nuvem e virtualização.",
+                                    "Liderar uma equipa de arquitetos de sistemas, promovendo um ambiente colaborativo e orientando a equipa para melhorar as capacidades técnicas.",
+                                    "Supervisionar a integração do Veeam para backup e recuperação, melhorando a fiabilidade e eficiência da proteção de dados."
+                                ]
+                            },
+                            {
+                                title: "Systems Architect",
+                                period: "Set 2020 – Abr 2022",
+                                details: [
+                                    "Projetar e implementar arquiteturas de sistemas escaláveis e robustas para as plataformas de alojamento na nuvem da empresa.",
+                                    "Colaborar com equipas multifuncionais para definir os requisitos do projeto e entregar soluções que cumprissem os objetivos de negócio.",
+                                    "Fornecer conhecimentos técnicos em soluções de armazenamento, virtualização e arquitetura de rede."
+                                ]
+                            },
+                            {
+                                title: "Systems Administrator",
+                                period: "Nov 2019 – Set 2020",
+                                details: [
+                                    "Administrar e manter sistemas centrais, incluindo SAN, armazenamento e infraestrutura de backup.",
+                                    "Desempenhar um papel fundamental num projeto de recuperação de desastres, garantindo a continuidade do negócio num ambiente dinâmico.",
+                                    "Gerir tarefas de projeto relacionadas com a consolidação de armazenamento e atualizações de sistema."
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        company: "NOWO Portugal",
+                        roles: [
+                            {
+                                title: "Systems Administrator",
+                                period: "Dez 2000 – Abr 2022",
+                                details: [
+                                    "Dirigir e gerir um programa abrangente de recuperação de desastres, utilizando EMC RecoverPoint.",
+                                    "Liderar projetos de consolidação de armazenamento e implementar novas arquiteturas de backup com appliances Avamar e Data Domain.",
+                                    "Gerir todos os aspetos de SAN e backups, incluindo administração, otimização e documentação."
+                                ]
+                            }
+                        ]
+                    }
+                ]
             },
-            {
-                title: "Project & Team Leadership",
-                skills: "Project Management, Team Leadership, IT Strategy, Vendor Management, ITIL."
+            skills: {
+                title: "Principais Competências",
+                chartLabel: "Nível de Competência",
+                chartLabels: ['Cloud & Virtualization', 'Storage & Data', 'Systems & Architecture', 'Leadership', 'Networking'],
+                list: [
+                    { title: "Cloud & Virtualization", skills: "Google Associate Cloud Engineer (ACE), IaaS, PaaS, VMware ESX, Hyper-V, Cloud Security." },
+                    { title: "Storage & Data Management", skills: "HPE 3PAR StoreServ, EMC2 (CX4-480, VNX), BRS, Disaster Recovery, SAN Management, Veeam." },
+                    { title: "Systems & Architecture", skills: "Solution Architecture, IT Infrastructure Management, Windows & Linux Administration, Active Directory, SCCM, SCOM." },
+                    { title: "Project & Team Leadership", skills: "Project Management, Team Leadership, IT Strategy, Vendor Management, ITIL." }
+                ]
+            },
+            education: {
+                title: "Educação & Certificações",
+                list: [
+                    { type: "Educação", title: "Postgraduate Certificate and Diploma in Information Security", institution: "Royal Holloway, University of London", year: "2010" },
+                    { type: "Educação", title: "Licentiate, Computers Engineering", institution: "IPS-EST / Escola Superior de Tecnologia de Setúbal", year: "2003 - 2007" },
+                    { type: "Educação", title: "Bach.D., Computer Sciences", institution: "IPB-EST / Escola Superior de Tecnologia de Beja", year: "1990 - 1994" },
+                    { type: "Certificação", title: "Google Associate Cloud Engineer (ACE)", institution: "Google", year: "Emitida Dez 2024" },
+                    { type: "Certificação", title: "Microsoft Certified Professional (MCPS)", institution: "Microsoft", year: "Emitida Abr 2007" },
+                    { type: "Certificação", title: "Cisco CCNA", institution: "Cisco", year: "" }
+                ]
+            },
+            languages: {
+                title: "Idiomas",
+                list: [
+                    { name: "Português", proficiency: "Proficiência nativa ou bilingue" },
+                    { name: "Inglês", proficiency: "Proficiência profissional completa" },
+                    { name: "Espanhol", proficiency: "Proficiência profissional de trabalho" },
+                    { name: "Francês", proficiency: "Proficiência profissional de trabalho" }
+                ]
+            },
+            contact: {
+                title: "Contacto",
+                text: "Sinta-se à vontade para entrar em contacto."
             }
-        ]
+        },
+        en: {
+            nav: {
+                profile: "Profile",
+                experience: "Experience",
+                skills: "Skills",
+                education: "Education",
+                languages: "Languages",
+                contact: "Contact"
+            },
+            profile: {
+                title: "Cloud and Systems Architect",
+                summary: "A dedicated and results-oriented Cloud and Systems Architect with over 15 years of experience managing complex IT infrastructures for telecommunications and cloud hosting companies. My expertise is in designing, implementing, and optimizing cloud platforms, storage solutions, and network architectures."
+            },
+            experience: {
+                title: "Professional Experience",
+                companies: [
+                    {
+                        company: "Oni, S.A. - a Gigas Hosting Company Group",
+                        roles: [
+                            {
+                                title: "Cloud Platform Infrastructure Portugal Team Leader",
+                                period: "Feb 2024 – Present",
+                                details: [
+                                    "Lead a team of engineers responsible for managing cloud platform infrastructure, including VMware, Hyper-V, and IaaS solutions.",
+                                    "Ensure high availability and performance of cloud services for a broad client base, including critical database and web services.",
+                                    "Spearhead strategic initiatives to enhance cloud security and optimize resource allocation."
+                                ]
+                            },
+                            {
+                                title: "IT Architecture Manager",
+                                period: "Apr 2022 – Feb 2024",
+                                details: [
+                                    "Managed the architectural design and implementation of IT solutions, with a focus on cloud and virtualization technologies.",
+                                    "Led a team of systems architects, fostering a collaborative environment and mentoring staff to improve technical capabilities.",
+                                    "Oversaw the integration of Veeam for backup and recovery, improving the reliability and efficiency of data protection."
+                                ]
+                            },
+                            {
+                                title: "Systems Architect",
+                                period: "Sep 2020 – Apr 2022",
+                                details: [
+                                    "Designed and implemented scalable and robust systems architectures for the company's cloud hosting platforms.",
+                                    "Collaborated with cross-functional teams to define project requirements and deliver solutions that met business objectives.",
+                                    "Provided technical expertise on storage solutions, virtualization, and network architecture."
+                                ]
+                            },
+                            {
+                                title: "Systems Administrator",
+                                period: "Nov 2019 – Sep 2020",
+                                details: [
+                                    "Administered and maintained core systems, including SAN, storage, and backup infrastructure.",
+                                    "Played a key role in a disaster recovery project, ensuring business continuity in a dynamic environment.",
+                                    "Managed project tasks related to storage consolidation and system upgrades."
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        company: "NOWO Portugal",
+                        roles: [
+                            {
+                                title: "Systems Administrator",
+                                period: "Dec 2000 – Apr 2022",
+                                details: [
+                                    "Directed and managed a comprehensive disaster recovery program, utilizing EMC RecoverPoint.",
+                                    "Led projects for storage consolidation and implemented new backup architectures with Avamar and Data Domain appliances.",
+                                    "Managed all aspects of SAN and backups, including administration, optimization, and documentation."
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            skills: {
+                title: "Core Competencies",
+                chartLabel: "Competence Level",
+                chartLabels: ['Cloud & Virtualization', 'Storage & Data', 'Systems & Architecture', 'Leadership', 'Networking'],
+                list: [
+                    { title: "Cloud & Virtualization", skills: "Google Associate Cloud Engineer (ACE), IaaS, PaaS, VMware ESX, Hyper-V, Cloud Security." },
+                    { title: "Storage & Data Management", skills: "HPE 3PAR StoreServ, EMC2 (CX4-480, VNX), BRS, Disaster Recovery, SAN Management, Veeam." },
+                    { title: "Systems & Architecture", skills: "Solution Architecture, IT Infrastructure Management, Windows & Linux Administration, Active Directory, SCCM, SCOM." },
+                    { title: "Project & Team Leadership", skills: "Project Management, Team Leadership, IT Strategy, Vendor Management, ITIL." }
+                ]
+            },
+            education: {
+                title: "Education & Certifications",
+                list: [
+                    { type: "Education", title: "Postgraduate Certificate and Diploma in Information Security", institution: "Royal Holloway, University of London", year: "2010" },
+                    { type: "Education", title: "Licentiate, Computers Engineering", institution: "IPS-EST / Escola Superior de Tecnologia de Setúbal", year: "2003 - 2007" },
+                    { type: "Education", title: "Bach.D., Computer Sciences", institution: "IPB-EST / Escola Superior de Tecnologia de Beja", year: "1990 - 1994" },
+                    { type: "Certification", title: "Google Associate Cloud Engineer (ACE)", institution: "Google", year: "Issued Dec 2024" },
+                    { type: "Certification", title: "Microsoft Certified Professional (MCPS)", institution: "Microsoft", year: "Issued Apr 2007" },
+                    { type: "Certification", title: "Cisco CCNA", institution: "Cisco", year: "" }
+                ]
+            },
+            languages: {
+                title: "Languages",
+                list: [
+                    { name: "Portuguese", proficiency: "Native or bilingual proficiency" },
+                    { name: "English", proficiency: "Full professional proficiency" },
+                    { name: "Spanish", proficiency: "Professional working proficiency" },
+                    { name: "French", proficiency: "Professional working proficiency" }
+                ]
+            },
+            contact: {
+                title: "Contact",
+                text: "Feel free to get in touch."
+            }
+        }
     };
 
-    const educationData = [
-        {
-            type: "Educação",
-            title: "Postgraduate Certificate and Diploma in Information Security",
-            institution: "Royal Holloway, University of London",
-            year: "2010"
-        },
-        {
-            type: "Educação",
-            title: "Licentiate, Computers Engineering",
-            institution: "IPS-EST / Escola Superior de Tecnologia de Setúbal",
-            year: "2003 - 2007"
-        },
-        {
-            type: "Educação",
-            title: "Bach.D., Computer Sciences",
-            institution: "IPB-EST / Escola Superior de Tecnologia de Beja",
-            year: "1990 - 1994"
-        },
-        {
-            type: "Certificação",
-            title: "Google Associate Cloud Engineer (ACE)",
-            institution: "Google",
-            year: "Emitida Dez 2024"
-        },
-        {
-            type: "Certificação",
-            title: "Microsoft Certified Professional (MCPS)",
-            institution: "Microsoft",
-            year: "Emitida Abr 2007"
-        },
-        {
-            type: "Certificação",
-            title: "Cisco CCNA",
-            institution: "Cisco",
-            year: ""
-        }
-    ];
+    let currentLanguage = 'pt';
+    let skillsChart = null;
 
-    document.addEventListener('DOMContentLoaded', () => {
-        const menuBtn = document.getElementById('menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-        menuBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
+    const getElement = (id) => document.getElementById(id);
+
+    const updateStaticText = () => {
+        const elements = document.querySelectorAll('[data-lang-key]');
+        elements.forEach(el => {
+            const keys = el.getAttribute('data-lang-key').split('.');
+            let text = content[currentLanguage];
+            keys.forEach(key => text = text[key]);
+            el.innerText = text;
         });
+    };
 
-        const timelineContainer = document.getElementById('timeline-container');
+    const renderExperience = () => {
+        const container = getElement('timeline-container');
+        container.innerHTML = `<div class="absolute left-1/2 h-full w-0.5 bg-slate-300 transform -translate-x-1/2"></div>`;
         let side = 'left';
-        experienceData.forEach(company => {
+
+        content[currentLanguage].experience.companies.forEach(company => {
             company.roles.forEach(role => {
                 const item = document.createElement('div');
                 item.className = `timeline-item mb-8 flex justify-between items-center w-full ${side === 'left' ? 'flex-row-reverse' : ''}`;
@@ -303,7 +415,7 @@
                     </div>
                     ${side === 'left' ? emptyDiv : contentDiv}
                 `;
-                timelineContainer.appendChild(item);
+                container.appendChild(item);
                 side = side === 'left' ? 'right' : 'left';
 
                 const header = item.querySelector('.cursor-pointer');
@@ -313,20 +425,32 @@
                 });
             });
         });
+    };
 
-        const skillsListContainer = document.getElementById('skills-list');
-        skillsData.listData.forEach(skillCat => {
+    const renderSkills = () => {
+        const listContainer = getElement('skills-list');
+        listContainer.innerHTML = '';
+        content[currentLanguage].skills.list.forEach(skillCat => {
             const div = document.createElement('div');
             div.className = "bg-slate-50 p-6 rounded-lg shadow-sm";
             div.innerHTML = `
                 <h3 class="font-bold text-xl text-slate-800 mb-2">${skillCat.title}</h3>
                 <p class="text-slate-600">${skillCat.skills}</p>
             `;
-            skillsListContainer.appendChild(div);
+            listContainer.appendChild(div);
         });
 
-        const educationContainer = document.getElementById('education-container');
-        educationData.forEach(edu => {
+        if (skillsChart) {
+            skillsChart.data.labels = content[currentLanguage].skills.chartLabels;
+            skillsChart.data.datasets[0].label = content[currentLanguage].skills.chartLabel;
+            skillsChart.update();
+        }
+    };
+
+    const renderEducation = () => {
+        const container = getElement('education-container');
+        container.innerHTML = '';
+        content[currentLanguage].education.list.forEach(edu => {
             const div = document.createElement('div');
             div.className = "bg-white p-6 rounded-lg shadow-md";
             div.innerHTML = `
@@ -335,17 +459,56 @@
                 <p class="text-slate-500">${edu.institution}</p>
                 <p class="text-sm text-slate-400 mt-2">${edu.year}</p>
             `;
-            educationContainer.appendChild(div);
+            container.appendChild(div);
+        });
+    };
+
+    const renderLanguages = () => {
+        const container = getElement('languages-list');
+        container.innerHTML = '';
+        content[currentLanguage].languages.list.forEach(lang => {
+            const li = document.createElement('li');
+            li.innerHTML = `<span class="font-semibold">${lang.name}:</span> ${lang.proficiency}`;
+            container.appendChild(li);
+        });
+    };
+
+    const updateUI = () => {
+        updateStaticText();
+        renderExperience();
+        renderSkills();
+        renderEducation();
+        renderLanguages();
+    };
+
+    const setLanguage = (lang) => {
+        currentLanguage = lang;
+        document.documentElement.lang = lang;
+        document.querySelectorAll('.lang-btn').forEach(btn => {
+            btn.classList.remove('bg-sky-600', 'bg-slate-700');
+            btn.classList.add(btn.id === `lang-${lang}` ? 'bg-sky-600' : 'bg-slate-700');
+        });
+        updateUI();
+    };
+
+    document.addEventListener('DOMContentLoaded', () => {
+        const menuBtn = getElement('menu-btn');
+        const mobileMenu = getElement('mobile-menu');
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
         });
 
-        const ctx = document.getElementById('skillsChart').getContext('2d');
-        new Chart(ctx, {
+        getElement('lang-pt').addEventListener('click', () => setLanguage('pt'));
+        getElement('lang-en').addEventListener('click', () => setLanguage('en'));
+
+        const ctx = getElement('skillsChart').getContext('2d');
+        skillsChart = new Chart(ctx, {
             type: 'radar',
             data: {
-                labels: skillsData.chartData.labels,
+                labels: content.pt.skills.chartLabels,
                 datasets: [{
-                    label: 'Nível de Competência',
-                    data: skillsData.chartData.data,
+                    label: content.pt.skills.chartLabel,
+                    data: [90, 95, 85, 90, 80],
                     backgroundColor: 'rgba(56, 189, 248, 0.2)',
                     borderColor: 'rgb(14, 165, 233)',
                     pointBackgroundColor: 'rgb(14, 165, 233)',
@@ -359,34 +522,27 @@
                 maintainAspectRatio: false,
                 scales: {
                     r: {
-                        angleLines: {
-                            color: 'rgba(0, 0, 0, 0.1)'
-                        },
-                        grid: {
-                            color: 'rgba(0, 0, 0, 0.1)'
-                        },
+                        angleLines: { color: 'rgba(0, 0, 0, 0.1)' },
+                        grid: { color: 'rgba(0, 0, 0, 0.1)' },
                         pointLabels: {
-                            font: {
-                                size: 14,
-                                weight: 'bold'
-                            },
-                            color: '#0f172a' // slate-900
+                            font: { size: 14, weight: 'bold' },
+                            color: '#0f172a'
                         },
                         ticks: {
                             backdropColor: 'rgba(255, 255, 255, 0.75)',
-                            color: '#475569' // slate-600
+                            color: '#475569',
+                            stepSize: 20
                         },
                         suggestedMin: 0,
                         suggestedMax: 100
                     }
                 },
                 plugins: {
-                    legend: {
-                        display: false
-                    }
+                    legend: { display: false }
                 }
             }
         });
+        updateUI();
     });
 </script>
 
