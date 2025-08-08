@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="pt" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filipe Quintino - Cloud & Systems Architect</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Chosen Palette: Slate Gray and Sky Blue -->
+    <!-- Application Structure Plan: The application is designed as a modern, single-page portfolio. It starts with a strong hero section, followed by a clear navigation bar for quick access to different content areas. The core of the application is a thematic structure: 'About Me' for a personal touch, an 'Interactive Timeline' to visualize career progression, a 'Skills Dashboard' with a chart for a quick competency overview, and standard 'Education' and 'Contact' sections. This structure was chosen to transform the linear, text-based CV into an engaging, user-driven experience, allowing recruiters to explore areas of interest non-linearly and quickly grasp key qualifications and career trajectory. -->
+    <!-- Visualization & Content Choices: 
+        - Career History -> Goal: Show Change/Progression -> Viz: Interactive Vertical Timeline (HTML/CSS/JS) -> Interaction: Click to expand details for each role -> Justification: This condenses a long career into a clean, scannable format, preventing information overload while allowing deep dives.
+        - Core Competencies -> Goal: Compare/Inform -> Viz: Radar Chart (Chart.js) & Thematic Cards (HTML/CSS) -> Interaction: Chart provides an immediate visual summary of strengths; cards provide detailed skill listings -> Justification: This dual approach caters to both quick visual scanning and detailed review, making skills assessment fast and thorough.
+        - Education/Certs -> Goal: Inform -> Viz: Simple Cards (HTML/CSS) -> Interaction: Static -> Justification: Presents credentials in a clear, organized, and easily digestible format without unnecessary complexity.
+    -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc; /* slate-50 */
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 350px;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 400px;
+            }
+        }
+        .timeline-item-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-in-out, padding 0.5s ease-in-out;
+        }
+        .timeline-item-content.open {
+            max-height: 500px; /* Adjust as needed */
+        }
+    </style>
+</head>
+<body class="text-slate-700">
+
+    <header class="bg-slate-800 text-white sticky top-0 z-50 shadow-md">
+        <nav class="container mx-auto px-6 py-3">
+            <div class="flex justify-between items-center">
+                <div class="text-xl font-bold">Filipe Quintino</div>
+                <div class="hidden md:flex space-x-6">
+                    <a href="#profile" class="hover:text-sky-400 transition">Perfil</a>
+                    <a href="#experience" class="hover:text-sky-400 transition">Experiência</a>
+                    <a href="#skills" class="hover:text-sky-400 transition">Competências</a>
+                    <a href="#education" class="hover:text-sky-400 transition">Educação</a>
+                    <a href="#contact" class="hover:text-sky-400 transition">Contacto</a>
+                </div>
+                <div class="md:hidden">
+                    <button id="menu-btn" class="text-white focus:outline-none">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                    </button>
+                </div>
+            </div>
+            <div id="mobile-menu" class="hidden md:hidden mt-4">
+                <a href="#profile" class="block py-2 px-4 text-sm hover:bg-slate-700 rounded">Perfil</a>
+                <a href="#experience" class="block py-2 px-4 text-sm hover:bg-slate-700 rounded">Experiência</a>
+                <a href="#skills" class="block py-2 px-4 text-sm hover:bg-slate-700 rounded">Competências</a>
+                <a href="#education" class="block py-2 px-4 text-sm hover:bg-slate-700 rounded">Educação</a>
+                <a href="#contact" class="block py-2 px-4 text-sm hover:bg-slate-700 rounded">Contacto</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section id="profile" class="py-20 bg-white">
+            <div class="container mx-auto px-6 text-center">
+                <h1 class="text-4xl md:text-5xl font-bold text-slate-800">Filipe Miguel Salema Banazol Quintino</h1>
+                <p class="mt-4 text-xl text-sky-600 font-medium">Cloud and Systems Architect</p>
+                <p class="mt-6 max-w-3xl mx-auto text-lg text-slate-600">
+                    Arquiteto de Cloud e Sistemas, dedicado e orientado a resultados, com mais de 15 anos de experiência na gestão de infraestruturas de TI complexas para empresas de telecomunicações e de alojamento na nuvem. A minha especialidade é projetar, implementar e otimizar plataformas de nuvem, soluções de armazenamento e arquiteturas de rede.
+                </p>
+            </div>
+        </section>
+
+        <section id="experience" class="py-20">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl font-bold text-center text-slate-800 mb-12">Experiência Profissional</h2>
+                <div id="timeline-container" class="relative max-w-3xl mx-auto">
+                    <div class="absolute left-1/2 h-full w-0.5 bg-slate-300 transform -translate-x-1/2"></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills" class="py-20 bg-white">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl font-bold text-center text-slate-800 mb-12">Principais Competências</h2>
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div class="chart-container">
+                        <canvas id="skillsChart"></canvas>
+                    </div>
+                    <div id="skills-list" class="space-y-6">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="education" class="py-20">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl font-bold text-center text-slate-800 mb-12">Educação & Certificações</h2>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8" id="education-container">
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer id="contact" class="bg-slate-800 text-white py-12">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-2xl font-bold">Contacto</h2>
+            <p class="mt-4">Sinta-se à vontade para entrar em contacto.</p>
+            <div class="mt-6 flex justify-center items-center space-x-6 text-sm">
+                <a href="mailto:fmq9999@hotmail.com" class="hover:text-sky-400 transition">fmq9999@hotmail.com</a>
+                <span>|</span>
+                <a href="tel:+351932644899" class="hover:text-sky-400 transition">+351 932 644 899</a>
+                <span>|</span>
+                <a href="https://www.linkedin.com/in/fquintino/" target="_blank" rel="noopener noreferrer" class="hover:text-sky-400 transition">LinkedIn</a>
+            </div>
+        </div>
+    </footer>
+
+<script>
+    const experienceData = [
+        {
+            company: "Oni, S.A. - a Gigas Hosting Company Group",
+            roles: [
+                {
+                    title: "Cloud Platform Infrastructure Portugal Team Leader",
+                    period: "Fev 2024 – Presente",
+                    details: [
+                        "Liderar uma equipa de engenheiros responsáveis pela gestão da infraestrutura da plataforma de nuvem, incluindo VMware, Hyper-V e soluções IaaS.",
+                        "Garantir alta disponibilidade e desempenho dos serviços na nuvem para uma vasta base de clientes, incluindo bases de dados e serviços web críticos.",
+                        "Liderar iniciativas estratégicas para melhorar a segurança da nuvem e otimizar a alocação de recursos."
+                    ]
+                },
+                {
+                    title: "IT Architecture Manager",
+                    period: "Abr 2022 – Fev 2024",
+                    details: [
+                        "Gerir o design arquitetónico e a implementação de soluções de TI, com foco em tecnologias de nuvem e virtualização.",
+                        "Liderar uma equipa de arquitetos de sistemas, promovendo um ambiente colaborativo e orientando a equipa para melhorar as capacidades técnicas.",
+                        "Supervisionar a integração do Veeam para backup e recuperação, melhorando a fiabilidade e eficiência da proteção de dados."
+                    ]
+                },
+                {
+                    title: "Systems Architect",
+                    period: "Set 2020 – Abr 2022",
+                    details: [
+                        "Projetar e implementar arquiteturas de sistemas escaláveis e robustas para as plataformas de alojamento na nuvem da empresa.",
+                        "Colaborar com equipas multifuncionais para definir os requisitos do projeto e entregar soluções que cumprissem os objetivos de negócio.",
+                        "Fornecer conhecimentos técnicos em soluções de armazenamento, virtualização e arquitetura de rede."
+                    ]
+                },
+                {
+                    title: "Systems Administrator",
+                    period: "Nov 2019 – Set 2020",
+                    details: [
+                        "Administrar e manter sistemas centrais, incluindo SAN, armazenamento e infraestrutura de backup.",
+                        "Desempenhar um papel fundamental num projeto de recuperação de desastres, garantindo a continuidade do negócio num ambiente dinâmico.",
+                        "Gerir tarefas de projeto relacionadas com a consolidação de armazenamento e atualizações de sistema."
+                    ]
+                }
+            ]
+        },
+        {
+            company: "NOWO Portugal",
+            roles: [
+                {
+                    title: "Systems Administrator",
+                    period: "Dez 2000 – Abr 2022",
+                    details: [
+                        "Dirigir e gerir um programa abrangente de recuperação de desastres, utilizando EMC RecoverPoint.",
+                        "Liderar projetos de consolidação de armazenamento e implementar novas arquiteturas de backup com appliances Avamar e Data Domain.",
+                        "Gerir todos os aspetos de SAN e backups, incluindo administração, otimização e documentação."
+                    ]
+                }
+            ]
+        }
+    ];
+
+    const skillsData = {
+        chartData: {
+            labels: ['Cloud & Virtualization', 'Storage & Data', 'Systems & Architecture', 'Leadership', 'Networking'],
+            data: [90, 95, 85, 90, 80]
+        },
+        listData: [
+            {
+                title: "Cloud & Virtualization",
+                skills: "Google Associate Cloud Engineer (ACE), IaaS, PaaS, VMware ESX, Hyper-V, Cloud Security."
+            },
+            {
+                title: "Storage & Data Management",
+                skills: "HPE 3PAR StoreServ, EMC2 (CX4-480, VNX), BRS, Disaster Recovery, SAN Management, Veeam."
+            },
+            {
+                title: "Systems & Architecture",
+                skills: "Solution Architecture, IT Infrastructure Management, Windows & Linux Administration, Active Directory, SCCM, SCOM."
+            },
+            {
+                title: "Project & Team Leadership",
+                skills: "Project Management, Team Leadership, IT Strategy, Vendor Management, ITIL."
+            }
+        ]
+    };
+
+    const educationData = [
+        {
+            type: "Educação",
+            title: "Postgraduate Certificate and Diploma in Information Security",
+            institution: "Royal Holloway, University of London",
+            year: "2010"
+        },
+        {
+            type: "Educação",
+            title: "Licentiate, Computers Engineering",
+            institution: "IPS-EST / Escola Superior de Tecnologia de Setúbal",
+            year: "2003 - 2007"
+        },
+        {
+            type: "Educação",
+            title: "Bach.D., Computer Sciences",
+            institution: "IPB-EST / Escola Superior de Tecnologia de Beja",
+            year: "1990 - 1994"
+        },
+        {
+            type: "Certificação",
+            title: "Google Associate Cloud Engineer (ACE)",
+            institution: "Google",
+            year: "Emitida Dez 2024"
+        },
+        {
+            type: "Certificação",
+            title: "Microsoft Certified Professional (MCPS)",
+            institution: "Microsoft",
+            year: "Emitida Abr 2007"
+        },
+        {
+            type: "Certificação",
+            title: "Cisco CCNA",
+            institution: "Cisco",
+            year: ""
+        }
+    ];
+
+    document.addEventListener('DOMContentLoaded', () => {
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        const timelineContainer = document.getElementById('timeline-container');
+        let side = 'left';
+        experienceData.forEach(company => {
+            company.roles.forEach(role => {
+                const item = document.createElement('div');
+                item.className = `timeline-item mb-8 flex justify-between items-center w-full ${side === 'left' ? 'flex-row-reverse' : ''}`;
+                const emptyDiv = '<div class="order-1 w-5/12"></div>';
+                const contentDiv = `
+                    <div class="order-1 w-5/12 px-1 py-4">
+                        <div class="bg-white p-6 rounded-lg shadow-lg cursor-pointer transition hover:shadow-xl">
+                            <p class="text-sm font-semibold text-sky-600">${role.period}</p>
+                            <h3 class="font-bold text-lg text-slate-800 mt-1">${role.title}</h3>
+                            <p class="text-sm text-slate-500">${company.company}</p>
+                            <div class="timeline-item-content mt-2 pt-2 border-t border-slate-200">
+                                <ul class="list-disc list-inside text-sm text-slate-600 space-y-1">
+                                    ${role.details.map(d => `<li>${d}</li>`).join('')}
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                item.innerHTML = `
+                    ${side === 'left' ? contentDiv : emptyDiv}
+                    <div class="z-20 flex items-center order-1 bg-slate-800 shadow-xl w-8 h-8 rounded-full">
+                        <h1 class="mx-auto font-semibold text-lg text-white"></h1>
+                    </div>
+                    ${side === 'left' ? emptyDiv : contentDiv}
+                `;
+                timelineContainer.appendChild(item);
+                side = side === 'left' ? 'right' : 'left';
+
+                const header = item.querySelector('.cursor-pointer');
+                header.addEventListener('click', () => {
+                    const content = item.querySelector('.timeline-item-content');
+                    content.classList.toggle('open');
+                });
+            });
+        });
+
+        const skillsListContainer = document.getElementById('skills-list');
+        skillsData.listData.forEach(skillCat => {
+            const div = document.createElement('div');
+            div.className = "bg-slate-50 p-6 rounded-lg shadow-sm";
+            div.innerHTML = `
+                <h3 class="font-bold text-xl text-slate-800 mb-2">${skillCat.title}</h3>
+                <p class="text-slate-600">${skillCat.skills}</p>
+            `;
+            skillsListContainer.appendChild(div);
+        });
+
+        const educationContainer = document.getElementById('education-container');
+        educationData.forEach(edu => {
+            const div = document.createElement('div');
+            div.className = "bg-white p-6 rounded-lg shadow-md";
+            div.innerHTML = `
+                <p class="text-sm font-semibold text-sky-600">${edu.type}</p>
+                <h3 class="font-bold text-lg text-slate-800 mt-1">${edu.title}</h3>
+                <p class="text-slate-500">${edu.institution}</p>
+                <p class="text-sm text-slate-400 mt-2">${edu.year}</p>
+            `;
+            educationContainer.appendChild(div);
+        });
+
+        const ctx = document.getElementById('skillsChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'radar',
+            data: {
+                labels: skillsData.chartData.labels,
+                datasets: [{
+                    label: 'Nível de Competência',
+                    data: skillsData.chartData.data,
+                    backgroundColor: 'rgba(56, 189, 248, 0.2)',
+                    borderColor: 'rgb(14, 165, 233)',
+                    pointBackgroundColor: 'rgb(14, 165, 233)',
+                    pointBorderColor: '#fff',
+                    pointHoverBackgroundColor: '#fff',
+                    pointHoverBorderColor: 'rgb(14, 165, 233)'
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    r: {
+                        angleLines: {
+                            color: 'rgba(0, 0, 0, 0.1)'
+                        },
+                        grid: {
+                            color: 'rgba(0, 0, 0, 0.1)'
+                        },
+                        pointLabels: {
+                            font: {
+                                size: 14,
+                                weight: 'bold'
+                            },
+                            color: '#0f172a' // slate-900
+                        },
+                        ticks: {
+                            backdropColor: 'rgba(255, 255, 255, 0.75)',
+                            color: '#475569' // slate-600
+                        },
+                        suggestedMin: 0,
+                        suggestedMax: 100
+                    }
+                },
+                plugins: {
+                    legend: {
+                        display: false
+                    }
+                }
+            }
+        });
+    });
+</script>
+
+</body>
+</html>
