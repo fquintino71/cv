@@ -10,7 +10,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <!-- Chosen Palette: Slate Gray and Sky Blue -->
-    <!-- Application Structure Plan: The application is designed as a modern, single-page portfolio. It starts with a strong hero section, followed by a clear navigation bar for quick access to different content areas. The core of the application is a thematic structure: 'About Me' for a personal touch, an 'Interactive Timeline' to visualize career progression, a 'Skills Dashboard' with a chart for a quick competency overview, and standard 'Education' and 'Contact' sections. This structure was chosen to transform the linear, text-based CV into an engaging, user-driven experience, allowing recruiters to explore areas of interest non-linearly and quickly grasp key qualifications and career trajectory. -->
+    <!-- Application Structure Plan: The application is designed as a modern, single-page portfolio. It starts with a strong hero section, followed by a clear navigation bar for quick access to different content areas. The core of the application is a thematic structure: 'About Me' for a personal touch, an 'Interactive Timeline' to visualize career progression, a 'Skills Dashboard' with a chart for a quick competency overview, and standard 'Education', 'Languages', and 'Contact' sections. This structure was chosen to transform the linear, text-based CV into an engaging, user-driven experience, allowing recruiters to explore areas of interest non-linearly and quickly grasp key qualifications and career trajectory. -->
     <!-- Visualization & Content Choices: 
         - Career History -> Goal: Show Change/Progression -> Viz: Interactive Vertical Timeline (HTML/CSS/JS) -> Interaction: Click to expand details for each role -> Justification: This condenses a long career into a clean, scannable format, preventing information overload while allowing deep dives.
         - Core Competencies -> Goal: Compare/Inform -> Viz: Radar Chart (Chart.js) & Thematic Cards (HTML/CSS) -> Interaction: Chart provides an immediate visual summary of strengths; cards provide detailed skill listings -> Justification: This dual approach caters to both quick visual scanning and detailed review, making skills assessment fast and thorough.
@@ -57,6 +57,7 @@
                     <a href="#experience" class="hover:text-sky-400 transition">Experiência</a>
                     <a href="#skills" class="hover:text-sky-400 transition">Competências</a>
                     <a href="#education" class="hover:text-sky-400 transition">Educação</a>
+                    <a href="#languages" class="hover:text-sky-400 transition">Idiomas</a>
                     <a href="#contact" class="hover:text-sky-400 transition">Contacto</a>
                 </div>
                 <div class="md:hidden">
@@ -70,6 +71,7 @@
                 <a href="#experience" class="block py-2 px-4 text-sm hover:bg-slate-700 rounded">Experiência</a>
                 <a href="#skills" class="block py-2 px-4 text-sm hover:bg-slate-700 rounded">Competências</a>
                 <a href="#education" class="block py-2 px-4 text-sm hover:bg-slate-700 rounded">Educação</a>
+                <a href="#languages" class="block py-2 px-4 text-sm hover:bg-slate-700 rounded">Idiomas</a>
                 <a href="#contact" class="block py-2 px-4 text-sm hover:bg-slate-700 rounded">Contacto</a>
             </div>
         </nav>
@@ -113,6 +115,18 @@
                 <h2 class="text-3xl font-bold text-center text-slate-800 mb-12">Educação & Certificações</h2>
                 <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8" id="education-container">
                 </div>
+            </div>
+        </section>
+
+        <section id="languages" class="py-20 bg-white">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="text-3xl font-bold text-slate-800 mb-8">Idiomas</h2>
+                <ul class="mt-4 space-y-2 text-sm max-w-xl mx-auto">
+                    <li><span class="font-semibold">Português:</span> Proficiência nativa ou bilingue</li>
+                    <li><span class="font-semibold">Inglês:</span> Proficiência profissional completa</li>
+                    <li><span class="font-semibold">Espanhol:</span> Proficiência profissional de trabalho</li>
+                    <li><span class="font-semibold">Francês:</span> Proficiência profissional de trabalho</li>
+                </ul>
             </div>
         </section>
     </main>
